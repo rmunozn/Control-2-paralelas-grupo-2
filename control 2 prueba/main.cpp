@@ -23,17 +23,17 @@ string estaciones[]={"SAN PABLO","NEPTUNO","PAJARITOS","LAS REJAS","ECUADOR","SA
             ,"LOS LEONES","TOBALABA","EL GOLF","ALCANTARA","ESCUELA MILITAR","MANQUEHUE","HERNANDO DE MAGALLANES","LOS DOMINICOS"
             ,"VESPUCIO NORTE","ZAPADORES","DORSAL","EINSTEIN","CEMENTERIOS"
             ,"CERRO BLANCO","PATRONATO","PUENTE CAL Y CANTO","SANTA ANA","TOESCA","PARQUE OHIGGINS","RONDIZZONI"
-            ,"FRANKLIN","EL LLANO","SAN MIGUEL","LO VIAL","DEPARTAMENTAL","CIUDAD DEL NIÑO","LO OVALLE","EL PARRON"
-            ,"LA CISTERNA","CRISTOBAL COLON","FRANCISCO BILBAO","PRINCIPE DE GALES","SIMON BOLIVAR","PLAZA EGAÑA"
-            ,"LOS ORIENTALES","GRECIA","LOS PRESIDENTES","QUILIN","LAS TORRES","MACUL","VICUÑA MACKENNA"
+            ,"FRANKLIN","EL LLANO","SAN MIGUEL","LO VIAL","DEPARTAMENTAL","CIUDAD DEL NIÃ‘O","LO OVALLE","EL PARRON"
+            ,"LA CISTERNA","CRISTOBAL COLON","FRANCISCO BILBAO","PRINCIPE DE GALES","SIMON BOLIVAR","PLAZA EGAÃ‘A"
+            ,"LOS ORIENTALES","GRECIA","LOS PRESIDENTES","QUILIN","LAS TORRES","MACUL","VICUÃ‘A MACKENNA"
             ,"VICENTE VALDES","ROJAS MAGALLANES","TRINIDAD","SAN JOSE DE LA ESTRELLA","LOS QUILLAYES","ELISA CORREA"
             ,"HOSPITAL SOTERO DEL RIO","PROTECTORA DE LA INFANCIA","LAS MERCEDES","PLAZA DE PUENTE ALTO"
             ,"SANTA JULIA","LA GRANJA","SANTA ROSA","SAN RAMON","PLAZA DE MAIPU","SANTIAGO BUERAS","DEL SOL"
             ,"MONTE TABOR","LAS PARCELAS","LAGUNA SUR","BARRANCAS","PUDAHUEL","LO PRADO","BlANQUEADO"
             ,"GRUTA DE LOURDES","QUINTA NORMAL","CUMMING","PLAZA DE ARMAS","BELLAS ARTES","PARQUE BUSTAMANTE"
-            ,"SANTA ISABEL","IRARRAZAVAL","ÑUBLE","RODRIGO DE ARAYA","CARLOS VALDOVINOS","CAMINO AGRICOLA"
+            ,"SANTA ISABEL","IRARRAZAVAL","Ã‘UBLE","RODRIGO DE ARAYA","CARLOS VALDOVINOS","CAMINO AGRICOLA"
             ,"SAN JOAQUIN","PEDRERO","MIRADOR","BELLAVISTA DE LA FLORIDA","CERRILLOS","LO VALLEDOR"
-            ,"PEDRO AGUIRRE CERDA","BIO BIO","ESTADIO NACIONAL","ÑUÑOA","INES DE SUAREZ"};
+            ,"PEDRO AGUIRRE CERDA","BIO BIO","ESTADIO NACIONAL","Ã‘UÃ‘OA","INES DE SUAREZ"};
 
 void Crear_Adyacente(int** Matriz);
 void dijkstra( int N, int **A, int a, int b, int argc,char **argv);
@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
     int** Metro;
     int filas = 107, columnas = 107;   /*Supongamos esos valores*/
     Metro = (int **)malloc(filas * sizeof(int *));
-    int x,y, myid, numprocs;
+    int x,y;
     int vec_inicio,vec_fin;
     //variable para estacion inicial y linea inicial
     int find_ei,find_li;
@@ -73,37 +73,30 @@ int main(int argc, char** argv) {
     "SP","NP","PJ","LR","EC","AH","US","EL","LA","RP","LH","LM","CH","SL","UC","BA","SA","MM","PV","LE","TB","GO","AL","EM","MQ","HM","LD","0","0","0",
     "SAN PABLO","NEPTUNO","PAJARITOS","LAS REJAS","ECUADOR","SAN ALBERTO HURTADO","UNIVERSIDAD DE SANTIAGO","ESTACION CENTRAL","ULA","REPUBLICA","LOS HEROES","LA MONEDA","UNIVERSIDAD DE CHILE","SANTA LUCIA","UNIVERSIDAD CATOLICA","BAQUEDANO","SALVADOR","MANUEL MONTT","PEDRO DE VALDIVIA","LOS LEONES","TOBALABA","EL GOLF","ALCANTARA","ESCUELA MILITAR","MANQUEHUE","HERNANDO DE MAGALLANES","LOS DOMINICOS","0","0","0",
     "LC","EP","LO","CN","DE","LV","SM","LL","FR","RO","PQ","TO","HE","AN","CA","PT","CB","CE","EI","DO","ZA","AV","0","0","0","0","0","0","0","0",
-    "LA CISTERNA","EL PARRON","LO OVALLE","CIUDAD DEL NIÑO","DEPARTAMENTAL","LO VIAL","SAN MIGUEL","EL LLANO","FRANKLIN","RONDIZZONI","PARQUE OHIGGINS","TOESCA","LOS HEROES","SANTA ANA","PUENTE CAL Y CANTO","PATRONATO","CERRO BLANCO","CEMENTERIOS","EINSTEIN","DORSAL","ZAPADORES","VESPUCIO NORTE","0","0","0","0","0","0","0","0",
+    "LA CISTERNA","EL PARRON","LO OVALLE","CIUDAD DEL NIÃ‘O","DEPARTAMENTAL","LO VIAL","SAN MIGUEL","EL LLANO","FRANKLIN","RONDIZZONI","PARQUE OHIGGINS","TOESCA","LOS HEROES","SANTA ANA","PUENTE CAL Y CANTO","PATRONATO","CERRO BLANCO","CEMENTERIOS","EINSTEIN","DORSAL","ZAPADORES","VESPUCIO NORTE","0","0","0","0","0","0","0","0",
     "TOB","COL","BIL","PDG","SBO","PEG","LOR","RGR","LPR","RQU","LTO","MAC","VMA","VVA","RMA","TRI","SJE","LQU","ECO","HSR","LME","PIN","PPA","0","0","0","0","0","0","0",
-    "TOBALABA","CRISTOBAL COLON","FRANCISCO BILBAO","PRINCIPE DE GALES","SIMON BOLIVAR","PLAZA EGAÑA","LOS ORIENTALES","GRECIA","LOS PRESIDENTES","QUILIN","LAS TORRES","MACUL","VICUÑA MACKENNA","VICENTE VALDES","ROJAS MAGALLANES","TRINIDAD","SAN JOSE DE LA ESTRELLA","LOS QUILLAYES","ELISA CORREA","HOSPITAL SOTERO DEL RIO","LAS MERCEDES","PROTECTORA DE LA INFANCIA","PLAZA DE PUENTE ALTO","0","0","0","0","0","0","0",
+    "TOBALABA","CRISTOBAL COLON","FRANCISCO BILBAO","PRINCIPE DE GALES","SIMON BOLIVAR","PLAZA EGAÃ‘A","LOS ORIENTALES","GRECIA","LOS PRESIDENTES","QUILIN","LAS TORRES","MACUL","VICUÃ‘A MACKENNA","VICENTE VALDES","ROJAS MAGALLANES","TRINIDAD","SAN JOSE DE LA ESTRELLA","LOS QUILLAYES","ELISA CORREA","HOSPITAL SOTERO DEL RIO","LAS MERCEDES","PROTECTORA DE LA INFANCIA","PLAZA DE PUENTE ALTO","0","0","0","0","0","0","0",
     "VIM","SJU","LGR","SRO","SRA","LCI","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",
-    "VICUÑA MACKENNA","SANTA JULIA","LA GRANJA","SANTA ROSA","SAN RAMON","LA CISTERNA","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",
+    "VICUÃ‘A MACKENNA","SANTA JULIA","LA GRANJA","SANTA ROSA","SAN RAMON","LA CISTERNA","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",
     "PM","SB","DS","MT","LP","LS","BR","PU","SO","PR","BL","GL","QN","RC","NA","PZ","BE","BQ","PB","SI","IR","NU","RA","CV","AG","SJ","PE","MA","LF","VV",
-    "PLAZA DE MAIPU","SANTIAGO BUERAS","DEL SOL","MONTE TABOR","LAS PARCELAS","LAGUNA SUR","BARRANCAS","PUDAHUEL","SAN PABLO","LO PRADO","BLANQUEADO","GRUTA DE LOURDES","QUINTA NORMAL","CUMMING","SANTA ANA","PLAZA DE ARMAS","BELLAS ARTES","BAQUEDANO","PARQUE BUSTAMANTE","SANTA ISABEL","IRARRAZAVAL","ÑUBLE","RODRIGO DE ARAYA","CARLOS VALDOVINOS","CAMINO AGRICOLA","SAN JOAQUIN","PEDRERO","MIRADOR","BELLAVISTA DE LA FLORIDA","VICENTE VALDES",
+    "PLAZA DE MAIPU","SANTIAGO BUERAS","DEL SOL","MONTE TABOR","LAS PARCELAS","LAGUNA SUR","BARRANCAS","PUDAHUEL","SAN PABLO","LO PRADO","BLANQUEADO","GRUTA DE LOURDES","QUINTA NORMAL","CUMMING","SANTA ANA","PLAZA DE ARMAS","BELLAS ARTES","BAQUEDANO","PARQUE BUSTAMANTE","SANTA ISABEL","IRARRAZAVAL","Ã‘UBLE","RODRIGO DE ARAYA","CARLOS VALDOVINOS","CAMINO AGRICOLA","SAN JOAQUIN","PEDRERO","MIRADOR","BELLAVISTA DE LA FLORIDA","VICENTE VALDES",
     "CER","LVA","PAC","FRA","BIO","NUB","ESN","NUO","ISU","LEN","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",
-    "CERRILLOS","LO VALLEDOR","PEDRO AGUIRRE CERDA","FRANKLIN","BIO BIO","ÑUBLE","ESTADIO NACIONAL","ÑUÑOA","INES DE SUAREZ","LOS LEONES","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"
+    "CERRILLOS","LO VALLEDOR","PEDRO AGUIRRE CERDA","FRANKLIN","BIO BIO","Ã‘UBLE","ESTADIO NACIONAL","Ã‘UÃ‘OA","INES DE SUAREZ","LOS LEONES","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"
     };
      for(int i = 0; i < columnas; i++){
         Metro[i] = (int *)malloc(columnas * sizeof(int));
     }
     char* rightStr = "-f";
     char* leftStr = "-v";
-    if (myid==0)
-    {
-        if (strcmp(pa,rightStr)==0)
-        {
-            cout<<endl;
-            cout<<"*******************"<<endl;
-            cout<<"OPCIONES ELEGIDAS DE ESTACIONES"<<endl;
-            cout<<"*******************"<<endl;
-        }
-        else if(strcmp(pa,leftStr)==0)
+    
+       
+        if(strcmp(pa,leftStr)==0)
         {
             cout<<endl;
             std::cout<<"*******************INTEGRANTES*******************"<<endl;
             cout<<"Felipe Campos"<<" - ";
             cout<<"Eloy Lopez"<<" - ";
-            cout<<"Rodrigo Muñoz"<<endl;
+            cout<<"Rodrigo MuÃ±oz"<<endl;
             cout<<"*************************************************"<<endl;
         }
     
@@ -116,8 +109,8 @@ int main(int argc, char** argv) {
         {
             if(inicio==lineas[y][x])
             {
-                cout<<endl<<"inicio"<<endl;
-                cout<<lineas[y+1][x]<<endl;
+                //cout<<endl<<"inicio"<<endl;
+                //cout<<lineas[y+1][x]<<endl;
                 find_li=y;
                 find_ei=x;
             }
@@ -129,8 +122,8 @@ int main(int argc, char** argv) {
         {
             if(fin==lineas[y][x])
             {
-                cout<<endl<<"fin"<<endl;
-                cout<<lineas[y+1][x]<<endl;
+               // cout<<endl<<"fin"<<endl;
+               // cout<<lineas[y+1][x]<<endl;
                 find_lf=y;
                 find_ef=x;
             }
@@ -156,12 +149,11 @@ int main(int argc, char** argv) {
     
      Crear_Adyacente(Metro);
     dijkstra(107,Metro,vec_inicio,vec_fin, argc, argv);
-    
     }
     
     }
     
-}
+
 void Crear_Adyacente(int** Matriz){
     for(int i=0;i<107;i++){
         for(int j=0;j<107;j++){
@@ -283,15 +275,19 @@ void Crear_Adyacente(int** Matriz){
  * dada su matriz de adyacencia A */
 void dijkstra( int N, int **A, int a, int b,int argc,char **argv) {
     int myid,numprocs;
-    int aux, contador =0, split1[2],split2[2],split3[2];
     MPI_Init( &argc, &argv );
     MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
     MPI_Comm_rank(MPI_COMM_WORLD,&myid);
+    int split1[1];
+    
     MPI_Status stat;
-    int *siguiente;
    label_t *Labels;
-   int i, i0, j, peso,l;
-   int *ruta;		/* array de nodos de la ruta minima */
+   int i, i0, j, peso;
+   int ruta[107];		/* array de nodos de la ruta minima */
+   for (i=0;i<107;i++)
+   {
+       ruta[i]=-1;
+   }
    
    /* Crea dinamicamente el arreglo de etiquetas de nodo */
    if ( ( Labels = new label_t[N] ) == NULL ) return;
@@ -319,58 +315,41 @@ void dijkstra( int N, int **A, int a, int b,int argc,char **argv) {
    }
    
    /* continuamos este ciclo mientras existan nodos no marcados */
+ if(myid==0)
+ {
+     
+ cout<<endl;
+            cout<<"*******************"<<endl;
+            cout<<"OPCIONES ELEGIDAS DE ESTACIONES"<<endl;
+            cout<<"*******************"<<endl;
+            cout<<endl<<"inicio"<<endl;
+            cout<<endl<<estaciones[a]<<endl;
+            cout<<endl<<"fin"<<endl;
+            cout<<estaciones[b]<<endl<<endl;
+            
    while ( 1 ) {
       /* busca entre todos los nodos no marcados el de menor peso, descartando los
        * de peso infinito (-1) */
       peso = -1;
       i0 = -1;
-      l=0;
-      contador=0;
-      for ( i = 0; i < N; i++ ) {
-         if ( Labels[i].marca == 0 && Labels[i].peso >= 0 )
-            if ( peso == -1 ) {
-               contador=contador+1;
-            }
-            else if ( Labels[i].peso <= peso ) {
-                contador=contador+1;
-            }
-      }
-    
-    siguiente=new int [contador];
     for ( i = 0; i < N; i++ ) {
          if ( Labels[i].marca == 0 && Labels[i].peso >= 0 )
             if ( peso == -1 ) {
                peso = Labels[i].peso;
                i0 = i;
-               siguiente[l]=i;
-               l=l+1;
             }
             else if ( Labels[i].peso <= peso ) {
                peso = Labels[i].peso;
                i0 = i;
-               siguiente[l]=i;
-               l=l+1;
             }
       }
-    split1[0]=0;
-    split1[1]=contador;
-    if (myid==0)
-    {
-         MPI_Send(&split1,2,MPI_INT,1,20,MPI_COMM_WORLD);
-    }
-   
-   
       if ( i0 == -1 ) {	/* termina si no encuentra */
          
          break;
       }
       /* actualiza el peso de todos los sucesores (si los hay) del nodo
-       * encontrado y luego señala dicho nodo como marcado */
-    if(myid==1)
-    {
-        MPI_Recv(&split1,2,MPI_INT,0,20,MPI_COMM_WORLD,&stat);
-        
-    }
+       * encontrado y luego seÃ±ala dicho nodo como marcado */
+
       for ( i = 0; i < N; i++ ) {
          if ( A[i0][i] > 0 ) {
             /* si el coste acumulado sumado al coste del enlace del nodo i0 al nodo i
@@ -384,20 +363,19 @@ void dijkstra( int N, int **A, int a, int b,int argc,char **argv) {
          }
       }
       Labels[i0].marca = 1;
-      delete siguiente;
+ 
    }
-
-   /* Ruta desde el nodo 'a' hasta el nodo 'b' */
+ 
+    /* Ruta desde el nodo 'a' hasta el nodo 'b' */
    int longitud = 2;
    i = b;
+   
    while ( ( i = Labels[i].anterior ) != a ) 
    {
        longitud++;	/* primero estimamos la longitud de la ruta */
        
    }
   
-   if ( ( ruta = new int[longitud] ) == NULL ) return;
-
    ruta[longitud - 1] = b;		/* luego rellenamos */
    i = b;
    j = 0;
@@ -405,20 +383,29 @@ void dijkstra( int N, int **A, int a, int b,int argc,char **argv) {
       i = Labels[i].anterior;
       ruta[longitud - j - 1] = i;
    }
-
-
-   if(myid==0)
-   {
-       for ( i = 0; i < longitud; i++ ) {
-      cout << estaciones[ruta[i]];
-      if ( i < longitud - 1 ) cout << " - ";
-   }
-   cout<<endl;
-   }
-       
-   
-   
-   delete ruta;
+   MPI_Send(&ruta,107,MPI_INT,1,20,MPI_COMM_WORLD);
+ }
+if(myid==1)
+ {
+    int largo=0;
+    MPI_Recv(&ruta,107,MPI_INT,0,20,MPI_COMM_WORLD,&stat);
+    for (i=0;i<107;i++)
+    {
+        if(ruta[i]>=0)
+        {
+            largo=largo+1;
+        }
+    }
+    for (i=0;i<largo;i++)
+    {
+        cout<<estaciones[ruta[i]];
+        if(i<largo-1)
+        {
+            cout<<" - ";
+        }
+    }
+    cout<<endl;
+ }
    delete [] Labels;
    MPI_Finalize();
 }
